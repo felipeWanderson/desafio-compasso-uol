@@ -1,0 +1,28 @@
+.error-container {
+  margin-top: 0.8rem;
+  width: 70%;
+  border-radius: 2rem;
+  background: rgba(248, 248, 248, 0.7);;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 3rem;
+
+  > span {
+    font-size: 2rem;
+  }
+
+
+  > button {
+    width: 5rem;
+    height: 5rem;
+    background: transparent;
+    border: 0;
+
+    > svg:hover {
+      color: red;
+    }
+  }
+}
