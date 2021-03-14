@@ -8,7 +8,7 @@ function List({ title, data }) {
       <h2>{title}</h2>
       <ul>
         {data.map(item => (
-          <li>
+          <li key={item.id}>
             <img 
               src={item.owner.avatar_url} 
               alt={item.owner.login}

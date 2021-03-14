@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import Header from '../../components/Header';
 import List from '../../components/List';
 
-import api from '../../services/api';
 import './styles.scss';
 
 
@@ -20,22 +19,28 @@ function Dashboard() {
   const handleRepositories = async () => {
     setStelected('repository');
     try {
-      const response = await api.get(`/users/${user.login}/repos`);
-      setRepositories(response.data);
+      const response = await fetch(`https://api.github.com/users/${user.login}/repos`);
+      if(!response.ok) {
+        throw Error(response.status);
+      }
+      const repositories = await response.json();
+      setRepositories(repositories);
     } catch (error) {
       console.log(error);
-    } finally {
     }
   };
   
   const handleStarred = async () => {
     setStelected('starred');
     try {
-      const response = await api.get(`/users/${user.login}/starred`);
-      setStarred(response.data);
+      const response = await fetch(`https://api.github.com/users/${user.login}/starred`);
+      if(!response.ok) {
+        throw Error(response.status);
+      }
+      const starreds = await response.json();
+      setStarred(starreds);
     } catch (error) {
       console.log(error);
-    } finally {
     }
   }; 
   return (

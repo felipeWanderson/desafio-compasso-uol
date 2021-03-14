@@ -4,10 +4,8 @@ import { BiSearchAlt } from 'react-icons/bi';
 import Logo from '../../assets/LogoCompasso.svg';
 import BackgroundImage from '../../assets/background-image.svg';
 
-import api from '../../services/api';
-
 import './styles.scss';
-import Error from '../../components/Error';
+import ToastError from '../../components/Error';
 import { useHistory } from 'react-router';
 
 function Home() {
@@ -24,15 +22,20 @@ function Home() {
       alert('o nome do usuário não pode ser vazio!');
       return;
     }
-
-    try{
-      const response = await api.get(`/users/${username}`);
-      const user = response.data;
+    try {
+      const response = await fetch(`https://api.github.com/users/${username}`);
+      if (!response.ok) {
+        throw Error(response.status);
+      }
+      const user = await response.json();
       localStorage.setItem('@githubfinder:user', JSON.stringify(user));
       history.push('/dashboard');
-    } catch(err) {
-      setIsError(true);
-      console.log(err);
+    }catch(err) {
+      if(err.message === '404') {
+        setIsError(true);
+      } else {
+        alert('Falha de Conexão, verifique sua internet');
+      }
     }
   }
   return (
@@ -62,7 +65,7 @@ function Home() {
                 Buscar
               </button>
             </div>
-            {isError && <Error onClose={closeError} />}
+            {isError && <ToastError onClose={closeError} />}
           </div>
           <div className="background-image">
             <img src={BackgroundImage} alt="Background"/>
