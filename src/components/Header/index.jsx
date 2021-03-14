@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { MdKeyboardArrowRight } from 'react-icons/md';
 
 import './styles.scss';
 
@@ -19,6 +21,9 @@ function Header() {
           <strong>{user.name}</strong>
           <span>{user.bio}</span>
         </div>
+        <Link to={`/profile/${user.login}`}>
+          <MdKeyboardArrowRight size={50} color="#F8F8F8" />
+        </Link>
       </div>
     </header>
   );
