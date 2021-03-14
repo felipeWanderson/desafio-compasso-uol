@@ -1,3 +1,41 @@
 .dashboard-container {
   height: 100%;
 }
+
+.dashboard-content {
+  max-width: 970px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.btn {
+  width: 17rem;
+  height: 3rem;
+  border: 1px solid #F7B718;
+  border-radius: 0px 0px 0.5rem 0.5rem;
+  background: transparent;
+  font-size: 1.6rem;
+  line-height: 2.6rem;
+  text-align: center;
+  color: #F7B718;
+  > a {
+    text-decoration: none;
+    font-size: 1.6rem;
+    line-height: 2.6rem;
+    text-align: center;
+    color: #F7B718;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.active {
+  background: #F7B718;
+  box-shadow: 0px 4px 4px rgba(14, 109, 52, 0.25);
+  font-weight: 600;
+  
+
+  color: #F8F8F8;
+}

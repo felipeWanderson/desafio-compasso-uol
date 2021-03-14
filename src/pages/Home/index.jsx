@@ -12,7 +12,7 @@ import { useHistory } from 'react-router';
 
 function Home() {
   const [username, setUsername] = useState('');
-  const [isError, setIsError] = useState(true);
+  const [isError, setIsError] = useState(false);
   const history = useHistory();
 
   const closeError = () => {
