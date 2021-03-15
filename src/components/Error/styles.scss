@@ -27,3 +27,11 @@
     }
   }
 }
+
+@media (max-width: 600px) {
+  .error-container {
+    width: 90%;
+    padding: 2rem;
+    font-size: 1.2rem;
+  }
+}
