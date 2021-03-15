@@ -11,6 +11,7 @@ function Dashboard() {
   const [starreds, setStarred] = useState([]);
   const [user, setUser] = useState({});
   const [selected, setStelected] = useState('');
+  const [loading, setLoading] = useState(false);
   
   useEffect(() => {
     const userData = localStorage.getItem('@githubfinder:user');
@@ -19,6 +20,7 @@ function Dashboard() {
   const handleRepositories = async () => {
     setStelected('repository');
     try {
+      setLoading(true);
       const response = await fetch(`https://api.github.com/users/${user.login}/repos`);
       if(!response.ok) {
         throw Error(response.status);
@@ -26,13 +28,22 @@ function Dashboard() {
       const repositories = await response.json();
       setRepositories(repositories);
     } catch (error) {
-      console.log(error);
-    }
+      if(error) {
+        if(error.message === '404') {
+          alert('nao foi possivel achar os repositorios');
+        } else {
+          alert('Falha de Conexão, verifique sua internet');
+        }
+      }
+    }finally {
+      setLoading(false);
+    } 
   };
   
   const handleStarred = async () => {
     setStelected('starred');
     try {
+      setLoading(true);
       const response = await fetch(`https://api.github.com/users/${user.login}/starred`);
       if(!response.ok) {
         throw Error(response.status);
@@ -40,7 +51,13 @@ function Dashboard() {
       const starreds = await response.json();
       setStarred(starreds);
     } catch (error) {
-      console.log(error);
+      if(error.message === '404') {
+        alert('nao foi possivel achar os repositorios mais visitados');
+      } else {
+        alert('Falha de Conexão, verifique sua internet');
+      }
+    } finally {
+      setLoading(false);
     }
   }; 
   return (
@@ -66,13 +83,15 @@ function Dashboard() {
             </button>
         </header>
         { 
-          selected === 'repository' 
-          && <List title="Repositórios" data={repositories} />
-        }
-
-        {
-          selected === 'starred' 
-          && <List title="Repositórios mais visitados" data={starreds} />
+          loading ? (
+            <div className="dashboard-content">
+              <p>Carregando....</p>
+            </div>
+          ): selected === 'starred' ? (
+            <List title="Repositórios mais visitados" data={starreds} />
+          ): selected === 'repository' ? (
+            <List title="Repositórios" data={repositories} />
+          ): null
         }
       </main>
     </section>

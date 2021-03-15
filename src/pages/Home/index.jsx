@@ -10,6 +10,7 @@ import { useHistory } from 'react-router';
 
 function Home() {
   const [username, setUsername] = useState('');
+  const [loading, setLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const history = useHistory();
 
@@ -23,6 +24,7 @@ function Home() {
       return;
     }
     try {
+      setLoading(true);
       const response = await fetch(`https://api.github.com/users/${username}`);
       if (!response.ok) {
         throw Error(response.status);
@@ -36,6 +38,8 @@ function Home() {
       } else {
         alert('Falha de Conexão, verifique sua internet');
       }
+    } finally {
+      setLoading(false);
     }
   }
   return (
@@ -62,7 +66,7 @@ function Home() {
                 />
               </div>
               <button type="submit" onClick={handleSearchUser}>
-                Buscar
+                {!loading ? 'Buscar': 'Buscando....'}
               </button>
             </div>
             {isError && <ToastError onClose={closeError} />}
