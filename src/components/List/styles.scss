@@ -17,7 +17,7 @@
     > li {
       display: flex;
       align-items: center;
-      background: var(--green-light);
+      background: var(--gray-light);
       height: auto;
       border-radius: 5px;
       padding: 1rem 1.6rem;
@@ -34,7 +34,7 @@
         flex: 1;
         header {
           width: 100%;
-          border-bottom: 2px solid var(--gray-light);
+          border-bottom: 2px solid var(--gray);
           padding: 0.5rem 0;
           span {
             font-size: 1.6rem;
