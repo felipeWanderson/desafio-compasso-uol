@@ -1,6 +1,6 @@
 .home-container {
   height: 100vh;
-  background:  #242E36;
+  background:  var(--background-dark);
 }
 
 .home-content {
@@ -21,10 +21,10 @@
     font-size: 4rem;
     line-height: 6.8rem;
 
-    color: #F8F8F8;
+    color:var(--background);
 
     strong {
-      color: #F7B718;
+      color:var(--yellow);
     }
   }
 }
@@ -36,7 +36,7 @@
 
   > button {
     width: 19rem;
-    background: #F7B718;
+    background: var(--yellow);
     border: 0;
     border-radius: 5rem;
 
@@ -44,8 +44,8 @@
     transition: background-color 0.2s;
 
     &:hover {
-      background-color: #78590C;
-      color: #fff;
+      background-color: var(--yellow-dark);
+      color:var(--white);
     }
   }
 }
@@ -56,7 +56,7 @@
   width: 50rem;
   padding: 0.5rem 3rem;
 
-  border: 3px solid rgba(248, 248, 248, 0.3);
+  border: 3px solid var(--gray-light);
   border-radius: 5rem;
   margin-right: 3rem;
   input {
@@ -67,13 +67,13 @@
     border: 0;
 
     font-size: 2rem;
-    color: rgba(248, 248, 248, 0.3)
+    color: var(--gray-light);
   }
 
   > svg {
     width: 3.7rem;
     height: 3.7rem;
-    color: rgba(248, 248, 248, 0.3);
+    color:var(--gray-light);
   }
 }
 

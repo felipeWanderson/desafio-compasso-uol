@@ -10,14 +10,14 @@
     font-weight: bold;
     font-size: 3.2rem;
     line-height: 3.7rem;
-    color: #55544B;
+    color: var(--title);
   }
   ul {
     margin: 3rem 1rem;
     > li {
       display: flex;
       align-items: center;
-      background: rgba(196, 196, 196, 0.3);
+      background: var(--green-light);
       height: auto;
       border-radius: 5px;
       padding: 1rem 1.6rem;
@@ -34,13 +34,13 @@
         flex: 1;
         header {
           width: 100%;
-          border-bottom: 2px solid #C4C4C4;
+          border-bottom: 2px solid var(--gray-light);
           padding: 0.5rem 0;
           span {
             font-size: 1.6rem;
             line-height: 1.9rem;
             font-weight: bold;
-            color: #55544B;
+            color: var(--title);
           }
         }
 
@@ -53,7 +53,7 @@
             padding: 1rem 0;
             font-size: 1.6rem;
             line-height: 1.9rem;
-            color: #55544B;
+            color:var(--title);
           }
 
           > a {
@@ -61,7 +61,7 @@
             flex: 1;
             width: 17rem;
             height: 3.2rem;
-            border: 1px solid #F7B718;
+            border: 1px solid var(--yellow);
             border-radius: 5px;
             display: flex;
             align-items: center;
@@ -69,14 +69,14 @@
 
             font-size: 1.6rem;
             line-height: 2.6rem;
-            color: #F7B718;
+            color: var(--yellow);
             text-decoration: none;
 
             transition: color 0.2s;
 
             &:hover {
-              border-color: #9c740d; 
-              color: #9c740d;
+              border-color: var(--yellow-dark); 
+              color: var(--yellow-dark);
             }
           
           }

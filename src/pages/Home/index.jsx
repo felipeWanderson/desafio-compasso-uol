@@ -61,7 +61,8 @@ function Home() {
                 <BiSearchAlt />
                 <input 
                   type="text" 
-                  name="search" 
+                  name="search"
+                  placeholder="digite o nome do usuário do github" 
                   onChange={event => setUsername(event.target.value)} 
                 />
               </div>
