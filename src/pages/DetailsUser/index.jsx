@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import './styles.scss';
 
@@ -27,6 +28,9 @@ function DetailsUser() {
           <a href={user.html_url} target="_blank" rel="noreferrer">
             Ver perfil no github!  
           </a> 
+          <Link to="/dashboard">
+            Voltar a pagina anterior  
+          </Link> 
         </div>
       </div>
     </section>
