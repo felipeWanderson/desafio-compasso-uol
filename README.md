@@ -39,8 +39,8 @@ Projeto construido com as Tecnologias Atuais da Web.
 ### Como Inciar a Aplicação
 
 1. Entre na pasta forntend: `cd desafio-compasso-uol`
-2. Execute `yarn` para instalar as dependências do projeto<br />
-3. Execute `yarn start` para iniciar a aplicação
+2. Execute `yarn ou npm install` para instalar as dependências do projeto<br />
+3. Execute `yarn start ou npx start` para iniciar a aplicação
 
 ## Licença
 
