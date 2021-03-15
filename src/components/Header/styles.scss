@@ -43,5 +43,37 @@
   > a {
     margin-left: 10rem;
   }
+}
 
+@media (max-width: 768px) {
+  .header-container {
+    height: 15rem;
+  }
+  .header-content {
+    width: 100%;
+    padding: 3rem 1rem;
+    
+
+    > img {
+      width: 8rem;
+      height: 8rem;
+    }
+
+    > div {
+      flex: 1;
+      flex-direction: column;
+      strong {
+        font-size: 2rem;
+        line-height: 2.5rem;
+        color:  #F8F8F8;
+      }
+
+      > span {
+        font-size: 1.2rem;
+      }
+    }
+    > a {
+      margin-left: 0;
+    }
+  }
 }
