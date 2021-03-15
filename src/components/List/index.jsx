@@ -13,7 +13,7 @@ function List({ title, data }) {
               src={item.owner.avatar_url} 
               alt={item.owner.login}
             />
-            <div>
+            <div className="item-container">
               <header>
                 <span>{item.full_name}</span>
               </header>
@@ -25,7 +25,6 @@ function List({ title, data }) {
                   Ver no github
                 </a>
               </div>
-              
             </div>
         </li>
         ))}
